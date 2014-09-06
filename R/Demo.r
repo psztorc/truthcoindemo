@@ -1,4 +1,5 @@
 
+# run: CustomMath, ConsensusMechanism, and PlotJ first
 ToMatrix <- function(DF) {
   RowNames <- row.names(DF)
   DFn <- data.frame ( lapply( DF, as.numeric) ) # make all observations numbers
@@ -6,7 +7,6 @@ ToMatrix <- function(DF) {
   row.names(Matrix) <- RowNames  # restore row names (lost during as.numeric)
   return(Matrix)
 }
-
 
 truthcoindemo <- function(csvdata) {
 
@@ -77,7 +77,12 @@ print("Decisions")
 print(SvdResults$Decisions)
 print(" ")
 
-PlotJ(RescaledVoteMatrix, Scales = ScaleData)
+print( PlotJ(RescaledVoteMatrix, Scales = ScaleData) )
 
 invisible()
 }
+
+# this works
+truthcoindemo("Label,QID1,QID2,QID3,QID4,QID5,QID6,QID7,QID8,QID9,QID10\r\nQtext,\"In the United States, following the 2012 November / elections, was Barack Obama elected US President?\",\"In the United States, following the 2012 November / elections, was Mitt Romney elected US President?\",\"In the United States, following the 2012 November / elections, did the Democratic Party control 51...\",\"In the United States, following the 2012 November / elections, did the Republican Party control 218...\",\"In the United States, following the 2012 November / elections, how many seats in the House of Repre...\",\"During the 2011-2012 United States football season, did the New / England Patriots (AFC) win the 20...\",\"During the 2013-2014 United States football season, did the Denver / Broncos (AFC) win the 2014 Sup...\",\"On June 27th, 2014, was the closing price of the Dow Jones / Industrial Average (INDEXDJX:.DJI) abo...\",\"On June 27th, 2014, was the closing price of the SPDR Gold Trust / (ETF) (NYSEARCA:GLD) above 120?\",\"On July 9th, 2014, what was the closing price of the Dow Jones / Industrial Average (INDEXDJX:.DJI,...\"\r\nQtype,B,B,B,B,S,B,B,B,B,S\r\nMin,0,0,0,0,0,0,0,0,0,8000\r\nMax,1,1,1,1,538,1,1,1,1,20000\r\nVoter 1,1,0,1,1,242,0,0,1,1,16985.61\r\nVoter 2,0,0.5,0.5,,240,0,0,1,0,16985.61\r\nVoter 3,1,0,1,1,242,0,0,1,1,")
+# the image appears in editor
+
